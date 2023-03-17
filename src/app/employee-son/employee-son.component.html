@@ -4,6 +4,13 @@
       <div>
         {{indLista + 1}}. {{empLista.nombre}} {{empLista.apellido}} {{empLista.cargo}} {{empLista.salario}}
       </div>
+      <ul style="list-style: none;">
+        <li *ngFor="let c of caracteristicas">{{ c }}</li>
+      </ul>
+      <app-employee-features (featuresEmpleados)="agregarFeature($event)" (clearfeatures)="eliminarFeatures()"></app-employee-features>
     </div>
   </div>
 </div>
+
+<br><br>
+

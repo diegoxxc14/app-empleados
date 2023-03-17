@@ -10,10 +10,19 @@ export class EmployeeSonComponent implements OnInit {
 
   @Input() empLista: Empleado;
   @Input() indLista: number;
+  caracteristicas = [''];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  agregarFeature(feature: string) {
+    this.caracteristicas.push(feature);
+  }
+
+  eliminarFeatures() {
+    this.caracteristicas.pop();
   }
 
 }
