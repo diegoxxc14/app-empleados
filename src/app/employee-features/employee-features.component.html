@@ -1,6 +1,10 @@
-<input type="text" id="item-input" #newFeature [(ngModel)]="feature" placeholder="Nueva característica"
-  class="form-control">
+<div class="input-group mb-3">
+  <input type="text" id="item-input" #newFeature [(ngModel)]="feature" placeholder="Nueva característica"
+    class="form-control">
 
-<button (click)="agregarFeatures(newFeature.value)" class="btn btn-primary"
-  [disabled]="feature == ''">Add</button>
-<button (click)="eliminarLastFeature()" class="btn btn-warning">Clear pop()</button>
+  <div class="input-group-append">
+    <button (click)="agregarFeatures(newFeature.value)" class="btn btn-primary"
+      [disabled]="feature == ''">Add</button>
+    <button (click)="eliminarLastFeature()" class="btn btn-danger">Clear</button>
+  </div>
+</div>

@@ -37,5 +37,5 @@
 <br><br>
 
 <!-- Dar nombres a las variables del For (a los datos que se quiere pasar al componente hijo)-->
-<app-employee-son *ngFor="let emp of empleados; let i=index" [empLista]="emp" [indLista]="i"></app-employee-son>
+<app-employee-son *ngFor="let emp of empleados.reverse(); let i=index" [empLista]="emp" [indLista]="i"></app-employee-son>
 
