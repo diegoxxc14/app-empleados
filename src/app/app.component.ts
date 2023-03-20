@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Empleado } from './empleado.model';
+import { EmpleadosService } from './empleados.service';
 import { ServicioEmpleadoService } from './servicio-empleado.service';
 
 @Component({
@@ -14,21 +15,20 @@ export class AppComponent {
   cuadroCargo: string = '';
   cuadroSalario: number = 0;
 
-  empleados: Empleado[] = [
-    new Empleado('Diego', 'Cuenca', 'Analista Desarrollador', 680),
-    new Empleado('Silvana', 'Jiménez', 'Banca Personas', 800),
-    new Empleado('Juan', 'Hidalgo', 'Jefe Desarrollo', 1500),
-    new Empleado('Carlos', 'Cuenca', 'Jefe Riesgos', 1500)
-  ];
+  empleados: Empleado[];
 
-  constructor(private myService: ServicioEmpleadoService) { //Inyeccción del servicio
+  constructor(private myService: ServicioEmpleadoService, private empService: EmpleadosService) { //Inyeccción del servicios
+    this.obtenerEmpleados();
+  }
 
+  obtenerEmpleados() {
+    this.empleados = this.empService.getAllEmployees();
   }
 
   agregarEmpleado() {
     let miEmpleado = new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
     this.myService.showMessage('Nombres completos: ' + miEmpleado.nombre.concat(' ').concat(miEmpleado.apellido));
-    this.empleados.push(miEmpleado);
+    this.empService.addEmployee(miEmpleado);
     this.clearForm();
   }
 

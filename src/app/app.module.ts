@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { EmployeeSonComponent } from './employee-son/employee-son.component';
 import { EmployeeFeaturesComponent } from './employee-features/employee-features.component';
 import { ServicioEmpleadoService } from './servicio-empleado.service';
+import { EmpleadosService } from './empleados.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { ServicioEmpleadoService } from './servicio-empleado.service';
     BrowserModule,
     FormsModule
   ],
-  providers: [ServicioEmpleadoService],
+  providers: [ServicioEmpleadoService, EmpleadosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
