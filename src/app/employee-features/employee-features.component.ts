@@ -12,13 +12,12 @@ export class EmployeeFeaturesComponent implements OnInit {
   @Output() clearfeatures = new EventEmitter();
   feature: string = '';
 
-  constructor(private myServicio: ServicioEmpleadoService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   agregarFeatures(value: string) {
-    this.myServicio.showMessage("Característica nueva: " + value);
     this.featuresEmpleados.emit(value);
     this.feature='';
   }

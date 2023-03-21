@@ -17,7 +17,7 @@ export class AppComponent {
 
   empleados: Empleado[];
 
-  constructor(private myService: ServicioEmpleadoService, private empService: EmpleadosService) { //Inyeccción del servicios
+  constructor(private empService: EmpleadosService) { //Inyeccción del servicios
     this.obtenerEmpleados();
   }
 
@@ -27,7 +27,6 @@ export class AppComponent {
 
   agregarEmpleado() {
     let miEmpleado = new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
-    this.myService.showMessage('Nombres completos: ' + miEmpleado.nombre.concat(' ').concat(miEmpleado.apellido));
     this.empService.addEmployee(miEmpleado);
     this.clearForm();
   }

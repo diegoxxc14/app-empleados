@@ -10,4 +10,8 @@ export class Empleado {
     this.cargo = cargo;
     this.salario = salario;
   }
+
+  toString(): string {
+    return `Nombres: ${this.nombre} ${this.apellido} - Cargo: ${this.cargo} - Salario: ${this.salario}`;
+  }
 }
