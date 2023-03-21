@@ -7,16 +7,33 @@ import { EmployeeSonComponent } from './employee-son/employee-son.component';
 import { EmployeeFeaturesComponent } from './employee-features/employee-features.component';
 import { ServicioEmpleadoService } from './servicio-empleado.service';
 import { EmpleadosService } from './empleados.service';
+import { HomeCompComponent } from './home-comp/home-comp.component';
+import { ProyectosCompComponent } from './proyectos-comp/proyectos-comp.component';
+import { ContactoCompComponent } from './contacto-comp/contacto-comp.component';
+import { QuienesCompComponent } from './quienes-comp/quienes-comp.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  {path: '', component: HomeCompComponent},
+  {path: 'proyectos', component: ProyectosCompComponent},
+  {path: 'quienes', component: QuienesCompComponent},
+  {path: 'contacto', component: ContactoCompComponent}
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeSonComponent,
-    EmployeeFeaturesComponent
+    EmployeeFeaturesComponent,
+    HomeCompComponent,
+    ProyectosCompComponent,
+    ContactoCompComponent,
+    QuienesCompComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ServicioEmpleadoService, EmpleadosService],
   bootstrap: [AppComponent]
