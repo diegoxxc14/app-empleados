@@ -46,6 +46,11 @@ export class ActualizaCompComponent implements OnInit {
     this.irHome();
   }
 
+  eliminarEmpleado(){
+    this.empService.deleteEmployee(this.indice);
+    this.irHome();
+  }
+
   fillForm(emp: Empleado) {
     this.cuadroNombre = emp.nombre;
     this.cuadroApellido = emp.apellido;

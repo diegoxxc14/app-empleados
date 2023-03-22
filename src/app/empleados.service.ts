@@ -30,4 +30,8 @@ export class EmpleadosService {
   updateEmployee(index: number, employee: Empleado) {
     this.empleados[index] = employee;
   }
+
+  deleteEmployee(index: number) {
+    this.empleados.splice(index, 1);  // Elimina desde el indice, 1 elemento
+  }
 }
