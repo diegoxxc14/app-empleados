@@ -8,12 +8,15 @@ export class EmpleadosService {
 
   constructor(private ventanaService: ServicioEmpleadoService, private dataService: DataService) {}
 
-  private empleados: Empleado[] = [
-    new Empleado('Diego', 'Cuenca', 'Analista Desarrollador', 680),
-    new Empleado('Silvana', 'Jiménez', 'Banca Personas', 800),
-    new Empleado('Juan', 'Hidalgo', 'Jefe Desarrollo', 1500),
-    new Empleado('Carlos', 'Cuenca', 'Jefe Riesgos', 1500)
-  ];
+  private empleados: Empleado[] = [];
+
+  setEmployeesBD(employees: Empleado[]) {
+    this.empleados = employees;
+  }
+
+  getEmployeesBD() {
+    return this.dataService.getAllEmployees();
+  }
 
   getEmployeeByIndex(index: number): Empleado {
     return this.empleados[index];

@@ -24,7 +24,13 @@ export class HomeCompComponent implements OnInit {
   }
 
   obtenerEmpleados() {
-    this.empleados = this.empService.getAllEmployees();
+    this.empService.getEmployeesBD().subscribe(
+      empleados => {
+        this.empleados = Object.values(empleados);
+        this.empService.setEmployeesBD(this.empleados)
+      },
+      error => console.error(error)
+    );
   }
 
   agregarEmpleado() {
