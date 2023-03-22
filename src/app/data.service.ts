@@ -24,4 +24,16 @@ export class DataService {
     this.httpClient.put(DataService.firebaseURL, employees)
       .subscribe(this.observer);
   }
+
+  updateEmployee(index: number, employee: Empleado) {
+    let url = DataService.firebaseURL.replace('.json','/' + index + '.json')
+    this.httpClient.put(url, employee)
+      .subscribe(this.observer);
+  }
+
+  deleteEmployee(index: number) {
+    let url = DataService.firebaseURL.replace('.json','/' + index + '.json')
+    this.httpClient.delete(url)
+      .subscribe(this.observer);
+  }
 }

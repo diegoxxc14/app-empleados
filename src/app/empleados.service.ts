@@ -36,9 +36,17 @@ export class EmpleadosService {
 
   updateEmployee(index: number, employee: Empleado) {
     this.empleados[index] = employee;
+    this.dataService.updateEmployee(index, employee);
   }
 
   deleteEmployee(index: number) {
     this.empleados.splice(index, 1);  // Elimina desde el indice, 1 elemento
+    this.dataService.deleteEmployee(index);
+
+    // Se vuelve a guardar los empleados para reconstruir los índices.
+    if (this.empleados != null) {
+      this.dataService.saveEmployees(this.empleados);
+    }
+
   }
 }
