@@ -17,9 +17,11 @@ export class ActualizaCompComponent implements OnInit {
   empleados: Empleado[];
   indice: number;
   empleado: Empleado;
+  accion: string;
 
   constructor(private router: Router, private route: ActivatedRoute, private empService: EmpleadosService) {
     this.obtenerEmpleados();
+    this.accion = this.route.snapshot.queryParams['accion'];  // 1 si es actualizar y 2 para eliminar
     this.indice = this.route.snapshot.params['id'];
     this.empleado = this.obtenerEmpleadoId(this.indice);
     this.fillForm(this.empleado);
@@ -49,6 +51,14 @@ export class ActualizaCompComponent implements OnInit {
   eliminarEmpleado(){
     this.empService.deleteEmployee(this.indice);
     this.irHome();
+  }
+
+  ejecutarAccion() {
+    if(this.accion == '1') {
+      this.editarEmpleado();
+    } else {
+      this.eliminarEmpleado();
+    }
   }
 
   fillForm(emp: Empleado) {

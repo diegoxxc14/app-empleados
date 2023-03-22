@@ -28,8 +28,8 @@
     </div>
 
     <div class="col">
-      <button type="submit" class="btn btn-warning" (click)="editarEmpleado()" style="margin-top: 30px; margin-right: 5px;">Editar</button>
-      <button type="submit" class="btn btn-danger" (click)="eliminarEmpleado()" style="margin-top: 30px;">Eliminar</button>
+      <button type="submit" [ngClass]="accion=='1' ? 'btn btn-warning' : 'btn btn-danger'"
+        (click)="ejecutarAccion()" style="margin-top: 30px;">Ejecutar</button>
     </div>
   </form>
 
