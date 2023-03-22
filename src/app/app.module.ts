@@ -14,6 +14,8 @@ import { QuienesCompComponent } from './quienes-comp/quienes-comp.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ActualizaCompComponent } from './actualiza-comp/actualiza-comp.component';
 import { ErrorCompComponent } from './error-comp/error-comp.component';
+import { DataService } from './data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   {path: '', component: HomeCompComponent},
@@ -39,9 +41,10 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
-  providers: [ServicioEmpleadoService, EmpleadosService],
+  providers: [ServicioEmpleadoService, EmpleadosService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

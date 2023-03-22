@@ -1,11 +1,12 @@
 import { Injectable } from "@angular/core";
+import { DataService } from "./data.service";
 import { Empleado } from "./empleado.model";
 import { ServicioEmpleadoService } from "./servicio-empleado.service";
 
 @Injectable()
 export class EmpleadosService {
 
-  constructor(private ventanaService: ServicioEmpleadoService) {}
+  constructor(private ventanaService: ServicioEmpleadoService, private dataService: DataService) {}
 
   private empleados: Empleado[] = [
     new Empleado('Diego', 'Cuenca', 'Analista Desarrollador', 680),
@@ -24,7 +25,10 @@ export class EmpleadosService {
 
   addEmployee(employee: Empleado) {
     this.ventanaService.showMessage('> NUEVO EMPLEADO\n' + employee.toString());
+
     this.empleados.push(employee);
+    // Luego de actualizar el array lo guardamos en la BD
+    this.dataService.saveEmployees(this.empleados);
   }
 
   updateEmployee(index: number, employee: Empleado) {
