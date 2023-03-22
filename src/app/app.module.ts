@@ -12,12 +12,14 @@ import { ProyectosCompComponent } from './proyectos-comp/proyectos-comp.componen
 import { ContactoCompComponent } from './contacto-comp/contacto-comp.component';
 import { QuienesCompComponent } from './quienes-comp/quienes-comp.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ActualizaCompComponent } from './actualiza-comp/actualiza-comp.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeCompComponent},
   {path: 'proyectos', component: ProyectosCompComponent},
   {path: 'quienes', component: QuienesCompComponent},
-  {path: 'contacto', component: ContactoCompComponent}
+  {path: 'contacto', component: ContactoCompComponent},
+  {path: 'actualiza/:id', component: ActualizaCompComponent}
 ]
 
 @NgModule({
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
     HomeCompComponent,
     ProyectosCompComponent,
     ContactoCompComponent,
-    QuienesCompComponent
+    QuienesCompComponent,
+    ActualizaCompComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,6 @@
-<div class="container">
-  <div class="col" style="text-align: center;"><h1>{{titulo}}</h1></div>
+<p>actualiza-comp works!</p>
 
-  <br><br>
+<div class="container">
 
   <form class="form-group row">
     <div class="form-group col-md-3">
@@ -29,12 +28,12 @@
     </div>
 
     <div class="col">
-      <button type="submit" class="btn btn-primary" (click)="agregarEmpleado()" style="margin-top: 30px;">Agregar</button>
+      <button type="submit" class="btn btn-warning" (click)="editarEmpleado()" style="margin-top: 30px;">Editar</button>
     </div>
   </form>
+
+  <div style="text-align: center;">
+    <button class="btn btn-primary" (click)="irHome()">Ir a Inicio</button>
+  </div>
+
 </div>
-
-<br><br>
-
-<!-- Dar nombres a las variables del For (a los datos que se quiere pasar al componente hijo)-->
-<app-employee-son *ngFor="let emp of empleados; let i=index" [empLista]="emp" [indLista]="i"></app-employee-son>

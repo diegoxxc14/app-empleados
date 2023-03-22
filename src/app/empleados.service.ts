@@ -14,6 +14,10 @@ export class EmpleadosService {
     new Empleado('Carlos', 'Cuenca', 'Jefe Riesgos', 1500)
   ];
 
+  getEmployeeByIndex(index: number): Empleado {
+    return this.empleados[index];
+  }
+
   getAllEmployees() {
     return this.empleados;
   }
@@ -21,5 +25,9 @@ export class EmpleadosService {
   addEmployee(employee: Empleado) {
     this.ventanaService.showMessage('> NUEVO EMPLEADO\n' + employee.toString());
     this.empleados.push(employee);
+  }
+
+  updateEmployee(index: number, employee: Empleado) {
+    this.empleados[index] = employee;
   }
 }
