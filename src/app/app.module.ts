@@ -16,6 +16,7 @@ import { ActualizaCompComponent } from './actualiza-comp/actualiza-comp.componen
 import { ErrorCompComponent } from './error-comp/error-comp.component';
 import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginCompComponent } from './login-comp/login-comp.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeCompComponent},
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
   {path: 'quienes', component: QuienesCompComponent},
   {path: 'contacto', component: ContactoCompComponent},
   {path: 'actualiza/:id', component: ActualizaCompComponent},
+  {path: 'login', component: LoginCompComponent},
   {path: '**', component: ErrorCompComponent}  // Siempre al final
 ]
 
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
     ContactoCompComponent,
     QuienesCompComponent,
     ActualizaCompComponent,
-    ErrorCompComponent
+    ErrorCompComponent,
+    LoginCompComponent
   ],
   imports: [
     BrowserModule,
